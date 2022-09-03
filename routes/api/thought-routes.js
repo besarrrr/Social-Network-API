@@ -10,14 +10,16 @@ const {
 
     } = require('../../controllers/thought-controller');
 
-// Set up GET all and POST at /api/user
+// Set up GET all and POST 
 router.route('/')
   .get(getAllThought)
-  .post(addThought)
 
-// Set up GET one, PUT, and DELETE at /api/pizzas/:id
+
+  router.route('/:userId').post(addThought);
+
+// Set up GET one, PUT, and DELETE 
 router
-  .route('/:thoughtid')
+  .route('/:id')
   .get(getThoughtById)
   .put(updateThought)
   .delete(removeThought);
